@@ -1,111 +1,282 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+/* =========================================================
+   Tema CreativaMente — oscuro sobrio
+   Superficies azul pizarra + acento latón apagado, sin brillos ni
+   degradados. Sobre Bootstrap 5.3: se carga DESPUÉS de bootstrap.min.css
+   y <html> tiene data-bs-theme="dark" (ver index.html), así que redefinir
+   las variables --bs-* recolorea todos los componentes sin tocar el JSX.
+   Para cambiar el acento basta editar el bloque "Acento".
+   ========================================================= */
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+:root,
+:root[data-bs-theme='dark'] {
+  /* ---- Superficies ---- */
+  --cm-bg: #0a0e15;
+  --cm-surface: #111723;
+  --cm-surface-2: #172031;
+  --cm-border: #232f45;
+  --cm-border-strong: #33425f;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* ---- Acento (latón apagado) ---- */
+  --cm-accent: #c9a45c;
+  --cm-accent-rgb: 201, 164, 92;
+  --cm-accent-hover: #d8b573;
+  --cm-on-accent: #14110a;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  /* ---- Paleta Bootstrap (estados desaturados) ---- */
+  --bs-primary: var(--cm-accent);        --bs-primary-rgb: var(--cm-accent-rgb);
+  --bs-secondary: #7d8aa3;               --bs-secondary-rgb: 125, 138, 163;
+  --bs-success: #4aa383;                 --bs-success-rgb: 74, 163, 131;
+  --bs-info: #6ea0d8;                    --bs-info-rgb: 110, 160, 216;
+  --bs-warning: #d1a042;                 --bs-warning-rgb: 209, 160, 66;
+  --bs-danger: #d1666b;                  --bs-danger-rgb: 209, 102, 107;
+  --bs-light: #172031;                   --bs-light-rgb: 23, 32, 49;
+  --bs-dark: #0a0e15;                    --bs-dark-rgb: 10, 14, 21;
+
+  --bs-primary-bg-subtle: rgba(201, 164, 92, 0.12);   --bs-primary-text-emphasis: #e0c48a;   --bs-primary-border-subtle: rgba(201, 164, 92, 0.3);
+  --bs-success-bg-subtle: rgba(74, 163, 131, 0.13);   --bs-success-text-emphasis: #86cdb2;   --bs-success-border-subtle: rgba(74, 163, 131, 0.32);
+  --bs-warning-bg-subtle: rgba(209, 160, 66, 0.13);   --bs-warning-text-emphasis: #e2c07c;   --bs-warning-border-subtle: rgba(209, 160, 66, 0.32);
+  --bs-danger-bg-subtle: rgba(209, 102, 107, 0.13);   --bs-danger-text-emphasis: #e7a0a3;    --bs-danger-border-subtle: rgba(209, 102, 107, 0.32);
+  --bs-secondary-bg-subtle: rgba(125, 138, 163, 0.15); --bs-secondary-text-emphasis: #b5c0d4; --bs-secondary-border-subtle: rgba(125, 138, 163, 0.32);
+
+  /* ---- Texto ---- */
+  --bs-body-bg: var(--cm-surface);
+  --bs-body-bg-rgb: 17, 23, 35;
+  --bs-body-color: #c9d2e0;
+  --bs-body-color-rgb: 201, 210, 224;
+  --bs-heading-color: #eef2f8;
+  --bs-secondary-color: rgba(201, 210, 224, 0.6);     /* .text-muted */
+  --bs-secondary-bg: var(--cm-surface-2);
+  --bs-tertiary-bg: var(--cm-surface-2);
+  --bs-emphasis-color: #ffffff;
+  --bs-border-color: var(--cm-border);
+  --bs-link-color: var(--cm-accent);
+  --bs-link-hover-color: var(--cm-accent-hover);
+  --bs-link-color-rgb: var(--cm-accent-rgb);
+  --bs-link-hover-color-rgb: 216, 181, 115;
+
+  /* ---- Tipografía ---- */
+  --bs-font-sans-serif: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-size: 0.94rem;
+  --bs-body-line-height: 1.55;
+
+  /* ---- Formas: discretas, casi sin sombra ---- */
+  --bs-border-radius: 0.4rem;
+  --bs-border-radius-sm: 0.3rem;
+  --bs-border-radius-lg: 0.5rem;
+  --bs-border-radius-xl: 0.6rem;
+  --bs-box-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --bs-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  --bs-box-shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --bs-focus-ring-color: rgba(var(--cm-accent-rgb), 0.28);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
-  }
-}
-
+/* =========================================================
+   Base: fondo plano, sin resplandores
+   ========================================================= */
+html { color-scheme: dark; scrollbar-color: #2d3a53 transparent; }
 body {
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  background: var(--cm-bg);
+}
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+#root > .min-vh-100 { flex: 1 0 auto; }
+
+h1, h2, h3, h4, h5, h6 { letter-spacing: -0.01em; }
+::selection { background: rgba(var(--cm-accent-rgb), 0.3); color: #fff; }
+
+/* Utilidades escritas a mano en los componentes, adaptadas al tema */
+.bg-light.min-vh-100 { background: transparent !important; }   /* wrapper de App */
+.bg-white { background-color: var(--cm-surface) !important; }
+.text-dark { color: var(--bs-heading-color) !important; }
+.text-muted { color: var(--bs-secondary-color) !important; }
+.border-primary { border-color: rgba(var(--cm-accent-rgb), 0.55) !important; }
+.cursor-pointer { cursor: pointer; }
+
+/* =========================================================
+   Navbar: sólida, con filete inferior
+   ========================================================= */
+.navbar.bg-dark {
+  background: var(--cm-surface) !important;
+  border-bottom: 1px solid var(--cm-border);
+  box-shadow: inset 0 -2px 0 rgba(var(--cm-accent-rgb), 0.55);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  margin-bottom: 2rem !important;
+}
+.navbar-brand { font-size: 1.1rem; letter-spacing: 0; color: #fff !important; }
+.navbar-brand .bi { color: var(--cm-accent); }
+
+/* =========================================================
+   Botones: planos
+   ========================================================= */
+.btn {
+  --bs-btn-font-weight: 600;
+  --bs-btn-border-radius: 0.4rem;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.btn-primary {
+  --bs-btn-color: var(--cm-on-accent);
+  --bs-btn-bg: var(--cm-accent);
+  --bs-btn-border-color: var(--cm-accent);
+  --bs-btn-hover-color: var(--cm-on-accent);
+  --bs-btn-hover-bg: var(--cm-accent-hover);
+  --bs-btn-hover-border-color: var(--cm-accent-hover);
+  --bs-btn-active-color: var(--cm-on-accent);
+  --bs-btn-active-bg: #b78f48;
+  --bs-btn-active-border-color: #b78f48;
+  --bs-btn-focus-shadow-rgb: var(--cm-accent-rgb);
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--cm-accent);
+  --bs-btn-border-color: rgba(var(--cm-accent-rgb), 0.5);
+  --bs-btn-hover-color: var(--cm-on-accent);
+  --bs-btn-hover-bg: var(--cm-accent);
+  --bs-btn-hover-border-color: var(--cm-accent);
+  --bs-btn-active-color: var(--cm-on-accent);
+  --bs-btn-active-bg: var(--cm-accent-hover);
+  --bs-btn-active-border-color: var(--cm-accent-hover);
+}
+.btn-outline-light {
+  --bs-btn-border-color: var(--cm-border-strong);
+  --bs-btn-hover-bg: var(--cm-surface-2);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-border-color: var(--cm-accent);
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+/* =========================================================
+   Formularios
+   ========================================================= */
+.form-control, .input-group-text {
+  background-color: var(--cm-surface-2) !important;
+  border-color: var(--cm-border);
+  color: var(--bs-body-color);
+}
+.form-control::placeholder { color: rgba(201, 210, 224, 0.35); }
+.form-control:focus {
+  border-color: var(--cm-accent);
+  box-shadow: 0 0 0 0.2rem var(--bs-focus-ring-color);
+  color: #fff;
+}
+.input-group:focus-within .input-group-text { border-color: var(--cm-accent); color: var(--cm-accent) !important; }
+.form-label { text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem !important; }
+
+/* =========================================================
+   Tarjetas: borde fino, sin elevación
+   ========================================================= */
+.card {
+  --bs-card-bg: var(--cm-surface);
+  --bs-card-border-color: var(--cm-border);
+  --bs-card-cap-bg: transparent;
+  border: 1px solid var(--cm-border) !important;      /* los componentes traen border-0: devolvemos el borde fino */
+  box-shadow: var(--bs-box-shadow-sm) !important;
+  transition: border-color 0.15s ease;
+}
+.row .card:hover { border-color: var(--cm-border-strong) !important; }
+.card-footer.bg-light {
+  background-color: var(--cm-surface-2) !important;
+  border-top: 1px solid var(--cm-border) !important;
+}
+.card-header { border-bottom: 1px solid var(--cm-border) !important; }
+
+/* Login */
+.card.rounded-4.shadow-lg { box-shadow: var(--bs-box-shadow-lg) !important; border-top: 2px solid var(--cm-accent) !important; }
+.card.rounded-4.shadow-lg .rounded-circle.bg-primary {
+  background-color: var(--cm-surface-2) !important;
+  color: var(--cm-accent) !important;
+  border: 1px solid rgba(var(--cm-accent-rgb), 0.5);
+  box-shadow: none !important;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+/* Encabezados de panel: superficie sólida + filete lateral de color */
+.bg-success.text-white.rounded-3,
+.bg-danger.text-white.rounded-3 {
+  background: var(--cm-surface-2) !important;
+  border: 1px solid var(--cm-border);
+  box-shadow: var(--bs-box-shadow-sm) !important;
+}
+.bg-success.text-white.rounded-3 { border-left: 4px solid var(--bs-success); }
+.bg-danger.text-white.rounded-3  { border-left: 4px solid var(--bs-danger); }
+.text-white h1, .text-white h2, .text-white h3 { color: #fff; }
+.text-white .text-white-50 { color: rgba(255, 255, 255, 0.68) !important; }
+
+/* Encabezados claros con borde lateral */
+.border-start.border-5 {
+  border-style: solid !important;
+  border-width: 1px 1px 1px 4px !important;
+  border-top-color: var(--cm-border) !important;
+  border-right-color: var(--cm-border) !important;
+  border-bottom-color: var(--cm-border) !important;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+/* =========================================================
+   Tablas, listas, badges, alertas
+   ========================================================= */
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--bs-body-color);
+  --bs-table-hover-bg: rgba(255, 255, 255, 0.03);
+  --bs-table-hover-color: #fff;
+  --bs-table-border-color: var(--cm-border);
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+.table > thead th {
+  background: var(--cm-surface-2) !important;
+  color: var(--bs-secondary-color);
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  border-bottom: 1px solid var(--cm-border-strong);
 }
-p {
-  margin: 0;
+.list-group { --bs-list-group-bg: transparent; --bs-list-group-border-color: var(--cm-border); }
+.list-group-item:hover { background-color: rgba(255, 255, 255, 0.025); }
+
+.badge { font-weight: 600; letter-spacing: 0.01em; border-radius: 0.3rem; }
+.badge.rounded-pill { border-radius: 0.3rem !important; }     /* etiquetas rectas, más formales */
+.badge.bg-primary { color: var(--cm-on-accent) !important; }
+.badge.bg-warning, .badge.bg-warning.text-dark { color: #14110a !important; }
+.badge.bg-light { background-color: var(--cm-surface-2) !important; }
+.alert { border-radius: var(--bs-border-radius-lg); }
+.alert-success {
+  --bs-alert-bg: rgba(74, 163, 131, 0.1);
+  --bs-alert-color: #9bd6c0;
+  border: 1px solid rgba(74, 163, 131, 0.3) !important;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+/* =========================================================
+   Footer
+   ========================================================= */
+.cm-footer {
+  background: var(--cm-surface);
+  border-top: 1px solid var(--cm-border);
+  margin-top: 3rem;
+  font-size: 0.85rem;
+}
+.cm-footer h6 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+  color: var(--cm-accent);
+  margin-bottom: 0.9rem;
+}
+.cm-footer ul { list-style: none; padding: 0; margin: 0; }
+.cm-footer li { margin-bottom: 0.45rem; color: var(--bs-secondary-color); }
+.cm-footer .cm-footer-legal { color: rgba(201, 210, 224, 0.45); font-size: 0.78rem; }
+.cm-footer .bi { color: var(--cm-accent); }
+.cm-footer hr { border-color: var(--cm-border) !important; opacity: 1; }
+
+/* Entrada de pantalla: solo un fundido breve */
+main > div, main > .row { animation: fade-in 0.25s ease both; }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+@media (max-width: 576px) {
+  :root { --bs-body-font-size: 0.9rem; }
+  .navbar.bg-dark { padding-inline: 1rem !important; }
 }

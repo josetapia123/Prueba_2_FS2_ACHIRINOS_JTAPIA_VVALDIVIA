@@ -1,6 +1,7 @@
 // src/App.jsx
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import Login from './components/Login';
 import VistaCliente from './components/vistas/VistaCliente';
 import VistaDirector from './components/vistas/VistaDirector';
@@ -46,6 +47,8 @@ export default function App() {
                     </div>
                 )}
             </main>
+
+            <Footer />
         </div>
     );
 }
