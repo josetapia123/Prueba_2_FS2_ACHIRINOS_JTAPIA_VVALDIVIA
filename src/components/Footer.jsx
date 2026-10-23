@@ -14,15 +14,7 @@ export default function Footer() {
                             Plataforma de gestión interna de proyectos y campañas de marketing.
                         </p>
                     </div>
-                    <div className="col-6 col-lg-3 offset-lg-1">
-                        <h6>Paneles</h6>
-                        <ul>
-                            <li>Cliente</li>
-                            <li>Dirección</li>
-                            <li>Especialista</li>
-                            <li>Administración</li>
-                        </ul>
-                    </div>
+                    
                     <div className="col-6 col-lg-3">
                         <h6>Módulos</h6>
                         <ul>
@@ -37,4 +29,3 @@ export default function Footer() {
             </div>
         </footer>
     );
-}
