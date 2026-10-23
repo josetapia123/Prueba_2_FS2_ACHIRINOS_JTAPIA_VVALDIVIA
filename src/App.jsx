@@ -48,7 +48,7 @@ export default function App() {
                 )}
             </main>
 
-            <Footer />
+            {!usuarioActivo && <Footer />}
         </div>
     );
 }
