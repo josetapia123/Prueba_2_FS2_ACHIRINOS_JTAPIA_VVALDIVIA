@@ -28,4 +28,5 @@ export default function Footer() {
                 <p className="cm-footer-legal mb-0">© 2026 CreativaMente. Todos los derechos reservados.</p>
             </div>
         </footer>
-    );
+    ); 
+} 
