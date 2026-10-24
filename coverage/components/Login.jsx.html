@@ -128,7 +128,19 @@
 <a name='L63'></a><a href='#L63'>63</a>
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
-<a name='L66'></a><a href='#L66'>66</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -138,7 +150,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,7 +160,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -157,6 +167,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">22x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,7 +199,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -203,18 +227,16 @@ export default function Login({ onLoginSuccess }) {
 &nbsp;
     const handleLogin = (e) =&gt; {
         e.preventDefault();
-        
         const username = user.trim().toLowerCase();
 &nbsp;
-        // Validación: La contraseña solo debe contener números (Regex)
+        // Validación: La contraseña solo debe contener números
         if (!/^[0-9]+$/.test(pass)) {
             alert("Error: La contraseña solo puede contener números.");
             return;
         }
 &nbsp;
-        // Validación: Verificar credenciales en el archivo de datos
+        // Validación de credenciales
         if (usuariosData[username] &amp;&amp; usuariosData[username].pass === pass) {
-            // Pasamos el objeto del usuario autenticado al componente principal (App)
             onLoginSuccess(usuariosData[username]);
         } else <span class="missing-if-branch" title="else path not taken" >E</span>{
 <span class="cstat-no" title="statement not covered" >            alert("Credenciales incorrectas. Intente nuevamente.");</span>
@@ -222,37 +244,51 @@ export default function Login({ onLoginSuccess }) {
     };
 &nbsp;
     return (
-        &lt;div className="row justify-content-center align-items-center min-vh-100"&gt;
-            &lt;div className="col-md-4 col-sm-8"&gt;
-                &lt;div className="card shadow p-4 border-0"&gt;
-                    &lt;div className="text-center mb-3"&gt;
-                        &lt;h3 className="text-primary fw-bold mb-0"&gt;Iniciar Sesión&lt;/h3&gt;
+        &lt;div className="row justify-content-center align-items-center min-vh-100 bg-light"&gt;
+            &lt;div className="col-md-5 col-lg-4 col-sm-8"&gt;
+                &lt;div className="card shadow-lg p-4 border-0 rounded-4 bg-white"&gt;
+                    &lt;div className="text-center mb-4"&gt;
+                        &lt;div className="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3 shadow-sm" style={{ width: '60px', height: '60px' }}&gt;
+                            &lt;i className="bi bi-briefcase-fill fs-3"&gt;&lt;/i&gt;
+                        &lt;/div&gt;
+                        &lt;h3 className="fw-bold text-dark"&gt;CreativaMente&lt;/h3&gt;
+                        &lt;p className="text-muted small"&gt;Plataforma de Gestión Interna&lt;/p&gt;
                     &lt;/div&gt;
                     
                     &lt;form onSubmit={handleLogin}&gt;
                         &lt;div className="mb-3"&gt;
-                            &lt;input 
-                                type="text" 
-                                className="form-control" 
-                                placeholder="Usuario (ej: admin, cliente)" 
-                                value={user}
-                                onChange={(e) =&gt; setUser(e.target.value)}
-                                required
-                            /&gt;
+                            &lt;label className="form-label text-muted small fw-bold"&gt;Usuario&lt;/label&gt;
+                            &lt;div className="input-group"&gt;
+                                &lt;span className="input-group-text bg-light border-end-0 text-muted"&gt;&lt;i className="bi bi-person"&gt;&lt;/i&gt;&lt;/span&gt;
+                                &lt;input 
+                                    type="text" 
+                                    className="form-control border-start-0 bg-light py-2" 
+                                    placeholder="ej: admin, cliente, director" 
+                                    value={user}
+                                    onChange={(e) =&gt; setUser(e.target.value)}
+                                    required
+                                /&gt;
+                            &lt;/div&gt;
                         &lt;/div&gt;
 &nbsp;
-                        &lt;div className="mb-3"&gt;
-                            &lt;input 
-                                type="password" 
-                                className="form-control" 
-                                placeholder="Contraseña (solo números)" 
-                                value={pass}
-                                onChange={(e) =&gt; setPass(e.target.value)}
-                                required
-                            /&gt;
+                        &lt;div className="mb-4"&gt;
+                            &lt;label className="form-label text-muted small fw-bold"&gt;Contraseña&lt;/label&gt;
+                            &lt;div className="input-group"&gt;
+                                &lt;span className="input-group-text bg-light border-end-0 text-muted"&gt;&lt;i className="bi bi-lock"&gt;&lt;/i&gt;&lt;/span&gt;
+                                &lt;input 
+                                    type="password" 
+                                    className="form-control border-start-0 bg-light py-2" 
+                                    placeholder="Solo números (ej: 1234)" 
+                                    value={pass}
+                                    onChange={(e) =&gt; setPass(e.target.value)}
+                                    required
+                                /&gt;
+                            &lt;/div&gt;
                         &lt;/div&gt;
 &nbsp;
-                        &lt;button type="submit" className="btn btn-primary w-100"&gt;Ingresar&lt;/button&gt;
+                        &lt;button type="submit" className="btn btn-primary w-100 py-2 fw-bold shadow-sm"&gt;
+                            &lt;i className="bi bi-box-arrow-in-right me-2"&gt;&lt;/i&gt;Ingresar al Sistema
+                        &lt;/button&gt;
                     &lt;/form&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
@@ -265,7 +301,7 @@ export default function Login({ onLoginSuccess }) {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2026-10-23T16:00:08.480Z
+                at 2026-10-24T02:49:07.701Z
             </div>
         <script src="../prettify.js"></script>
         <script>

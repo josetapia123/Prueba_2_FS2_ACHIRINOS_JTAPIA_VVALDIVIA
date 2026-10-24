@@ -1,3 +1,4 @@
+// src/components/vistas/VistaEspecialista.test.jsx
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import VistaEspecialista from './VistaEspecialista';
@@ -9,11 +10,10 @@ describe('Componente VistaEspecialista', () => {
 
   it('renderiza el título y las tareas asignadas con sus detalles', () => {
     render(<VistaEspecialista tareas={tareasMock} />);
-    // Encabezado de la vista
-    expect(screen.getByRole('heading', { name: /área de especialistas/i })).toBeInTheDocument();
-    // Contenido de la tarea y sus horas registradas
+    
+    expect(screen.getByRole('heading', { name: /espacio de trabajo técnico/i })).toBeInTheDocument();
     expect(screen.getByText("Redacción de Copywriting")).toBeInTheDocument();
-    expect(screen.getByText(/horas estimadas: 6h/i)).toBeInTheDocument();
+    expect(screen.getByText(/6 horas estimadas/i)).toBeInTheDocument();
     expect(screen.getByText("En proceso")).toBeInTheDocument();
   });
 });
