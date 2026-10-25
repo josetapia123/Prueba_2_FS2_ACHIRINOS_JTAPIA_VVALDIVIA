@@ -36,7 +36,6 @@ Plataforma web desarrollada en React y Bootstrap para la gestión interna de pro
 * React (Componentes funcionales y Hooks como `useState`)
 * Bootstrap 5 & Bootstrap Icons (Diseño responsivo, tarjetas, tablas y utilidades de estilo)
 * Vite (Entorno de desarrollo rápido y empaquetado)
-* JavaScript (ES6+)
 
 ---
 
